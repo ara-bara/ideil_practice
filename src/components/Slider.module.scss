@@ -1,0 +1,55 @@
+html,
+body {
+   height: 100%;
+   background-color: #000000;
+}
+
+.swiper-slide .swiper-pagination-bullet {
+   width: 9px;
+
+
+}
+
+.swiper-slide img {
+   display: block;
+   padding-left: 30px; // Внутрішній відступ зліва для картинок
+   position: relative;
+   z-index: 1;
+}
+
+.sliderWrapper {
+   margin: 104px 0 0 -7px; // Відступ від попереднього блоку
+   width: 1276px;
+   height: 503px;
+   border-radius: 24.44px;
+   background-color: #222222;
+   padding-left: 37px;
+   position: relative;
+}
+
+.bullet {
+   width: 9px;
+   height: 9px;
+   background-color: gray;
+   cursor: pointer;
+}
+
+.prevButton,
+.nextButton {
+   position: absolute;
+   top: 44.5%;
+   z-index: 10;
+   cursor: pointer;
+}
+
+.prevButton {
+   left: 0.66%;
+}
+
+.nextButton {
+   right: 0.71%;
+}
+
+.customPagination {
+   margin: 10px 0 0 46.48%;
+}
