@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/ideil_practice/static/css/main.fca192d0.css",
-    "main.js": "/ideil_practice/static/js/main.551444cd.js",
+    "main.css": "/ideil_practice/static/css/main.5228f845.css",
+    "main.js": "/ideil_practice/static/js/main.72a6c9db.js",
     "static/media/Group.png": "/ideil_practice/static/media/Group.e22ea82fe165380542e8.png",
+    "static/media/smile.svg": "/ideil_practice/static/media/smile.908d3b27e4742634180df43ff313473d.svg",
     "static/media/logo.svg": "/ideil_practice/static/media/logo.8c9da69c471af923e406288ef78d960d.svg",
     "index.html": "/ideil_practice/index.html",
-    "main.fca192d0.css.map": "/ideil_practice/static/css/main.fca192d0.css.map",
-    "main.551444cd.js.map": "/ideil_practice/static/js/main.551444cd.js.map"
+    "main.5228f845.css.map": "/ideil_practice/static/css/main.5228f845.css.map",
+    "main.72a6c9db.js.map": "/ideil_practice/static/js/main.72a6c9db.js.map"
   },
   "entrypoints": [
-    "static/css/main.fca192d0.css",
-    "static/js/main.551444cd.js"
+    "static/css/main.5228f845.css",
+    "static/js/main.72a6c9db.js"
   ]
 }
