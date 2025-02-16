@@ -1,0 +1,19 @@
+@use "./Mixin" as *;
+
+
+.main {
+   text-align: center;
+   font-family: "Montserrat", serif;
+
+   h1 {
+      color: #FFFFFF;
+      font-family: "Montserrat", serif;
+      margin: 92px 0 71px 0;
+      @include text-styles(20px, 500, -9px);
+   }
+}
+
+.containerCustom {
+   display: grid;
+   grid-template-columns: repeat(4, 296px);
+}

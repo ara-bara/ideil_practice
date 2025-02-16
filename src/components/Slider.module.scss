@@ -1,53 +1,49 @@
+@import "./Mixin.scss";
+
 html,
 body {
    height: 100%;
    background-color: #000000;
 }
 
-.swiper-slide .swiper-pagination-bullet {
-   width: 9px;
-
-
-}
-
 .swiper-slide img {
    display: block;
-   padding-left: 30px; // Внутрішній відступ зліва для картинок
+   padding-left: 30px;
    position: relative;
    z-index: 1;
 }
 
+.smile {
+   top: -1%;
+   left: 5.4%;
+   @include wh(263px, 263px);
+   @include posa(7);
+}
+
+
 .sliderWrapper {
-   margin: 104px 0 0 -7px; // Відступ від попереднього блоку
-   width: 1276px;
-   height: 503px;
+   margin: 108px 0 0 -7px;
    border-radius: 24.44px;
    background-color: #222222;
    padding-left: 37px;
    position: relative;
+   @include wh(1276px, 503px);
 }
 
 .bullet {
-   width: 9px;
-   height: 9px;
    background-color: gray;
    cursor: pointer;
-}
-
-.prevButton,
-.nextButton {
-   position: absolute;
-   top: 44.5%;
-   z-index: 10;
-   cursor: pointer;
+   @include wh(9px, 9px);
 }
 
 .prevButton {
    left: 0.66%;
+   @include sbtn;
 }
 
 .nextButton {
    right: 0.71%;
+   @include sbtn;
 }
 
 .customPagination {

@@ -1,0 +1,80 @@
+@use "./Mixin" as *;
+
+.item {
+   .itemTitleAndSubtitle {
+      margin-top: 19px;
+
+      h2 {
+         color: #FFFFFF;
+         margin-bottom: 0;
+         @include text-styles(24px, 600, 0);
+         line-height: 24px;
+      }
+
+      .item-subtitle {
+         margin-top: -5px;
+      }
+   }
+
+   p {
+      @include text-styles(13px, 500, 0);
+      margin: 18px 0 70px 3px;
+      color: gray;
+   }
+
+   .itemPrice {
+      @include text-styles(18px, 600, 0);
+      color: #FFFFFF;
+      opacity: 0;
+      @include posa(4);
+      bottom: -0.3%;
+      left: 38.4%;
+      transition: opacity 0.3s ease;
+   }
+
+   &:hover {
+      .itemPrice {
+         opacity: 1;
+      }
+   }
+}
+
+.item-1 {
+   transform: translateX(-9px);
+}
+
+.item-2 {
+   transform: translateX(22px);
+}
+
+.item-3 {
+   transform: translateX(54px);
+}
+
+.item-4 {
+   transform: translateX(85px);
+}
+
+.item-5 {
+   margin-top: 64px;
+   margin-bottom: 40px;
+   transform: translateX(-9px);
+}
+
+.item-6 {
+   margin-top: 64px;
+   margin-bottom: 40px;
+   transform: translateX(22px);
+}
+
+.item-7 {
+   margin-top: 64px;
+   margin-bottom: 40px;
+   transform: translateX(54px);
+}
+
+.item-8 {
+   margin-top: 64px;
+   margin-bottom: 40px;
+   transform: translateX(85px);
+}

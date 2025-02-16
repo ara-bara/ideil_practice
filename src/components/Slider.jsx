@@ -8,6 +8,7 @@ import styles from "./Slider.module.scss";
 import banner from '../img/Group.png';
 import btnRight from "../img/btn-right.png";
 import btnLeft from "../img/btn-left.png";
+import smile from "../img/smile.svg";
 
 const Slider = () => {
    const sliderRef = useRef(null);
@@ -47,13 +48,16 @@ const Slider = () => {
          <div className="swiper" ref={sliderRef}>
             <div className="swiper-wrapper">
                <div className="swiper-slide">
-                  <img src={banner} alt="Slide 1" />
+                  <img src={banner} alt="Slide-1" />
+                  <img src={smile} alt="Smile" className={styles.smile} />
                </div>
                <div className="swiper-slide">
-                  <img src={banner} alt="Slide 2" />
+                  <img src={banner} alt="Slide-2" />
+                  <img src={smile} alt="Smile" className={styles.smile} />
                </div>
                <div className="swiper-slide">
-                  <img src={banner} alt="Slide 3" />
+                  <img src={banner} alt="Slide-3" />
+                  <img src={smile} alt="Smile" className={styles.smile} />
                </div>
             </div>
             <div className={styles.customPagination} ref={paginationRef}></div>

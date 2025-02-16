@@ -1,0 +1,22 @@
+@mixin wh($width, $height) {
+   width: $width;
+   height: $height;
+}
+
+@mixin posa($in) {
+   position: absolute;
+   z-index: $in;
+}
+
+@mixin sbtn {
+   top: 44.5%;
+   cursor: pointer;
+   @include posa(10);
+}
+
+@mixin text-styles($size, $weight, $translateX) {
+   font-size: $size;
+   font-weight: $weight;
+   transform: translateX($translateX);
+   font-family: "Montserrat", serif;
+}
