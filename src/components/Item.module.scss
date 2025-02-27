@@ -3,6 +3,7 @@
 .item {
    .itemTitleAndSubtitle {
       margin-top: 19px;
+      margin-left: 2px;
 
       h2 {
          color: #FFFFFF;
@@ -18,63 +19,83 @@
 
    p {
       @include text-styles(13px, 500, 0);
-      margin: 18px 0 70px 3px;
+      margin: 19px 0 0 3px;
       color: gray;
    }
 
-   .itemPrice {
-      @include text-styles(18px, 600, 0);
-      color: #FFFFFF;
-      opacity: 0;
-      @include posa(4);
-      bottom: -0.3%;
-      left: 38.4%;
-      transition: opacity 0.3s ease;
-   }
+   .priceContainer {
+      cursor: pointer;
+      padding: 32px 0;
+      margin: 19px 0 52px 0;
+      border-radius: 32px;
 
-   &:hover {
+      &:hover {
+         border: 2px solid white;
+         margin: 19px 0 48px 0;
+      }
+
       .itemPrice {
+         @include price-incart;
+         @include text-styles(18px, 600, 0);
          opacity: 1;
+         bottom: 12.2%;
+         letter-spacing: 0.12px;
+      }
+
+
+      &:hover {
+         .itemPrice {
+            opacity: 0;
+         }
+
+         .inCart {
+            opacity: 1;
+         }
+      }
+
+      .inCart {
+         @include price-incart;
+         @include text-styles(16px, 500, 0);
+         opacity: 0;
+         left: 24.75%;
+         bottom: 12.1%;
       }
    }
 }
 
+
 .item-1 {
-   transform: translateX(-9px);
+   transform: translateX(-2px);
 }
 
 .item-2 {
-   transform: translateX(22px);
+   transform: translateX(29px);
 }
 
 .item-3 {
-   transform: translateX(54px);
+   transform: translateX(61px);
 }
 
 .item-4 {
-   transform: translateX(85px);
+   transform: translateX(92px);
 }
 
 .item-5 {
-   margin-top: 64px;
    margin-bottom: 40px;
-   transform: translateX(-9px);
+   transform: translateX(-2px);
 }
 
 .item-6 {
-   margin-top: 64px;
    margin-bottom: 40px;
-   transform: translateX(22px);
+   transform: translateX(29px);
 }
 
 .item-7 {
-   margin-top: 64px;
    margin-bottom: 40px;
-   transform: translateX(54px);
+   transform: translateX(61px);
 }
 
 .item-8 {
-   margin-top: 64px;
    margin-bottom: 40px;
-   transform: translateX(85px);
+   transform: translateX(92px);
 }

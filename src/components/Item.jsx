@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import styles from './Item.module.scss'; // Імпортуємо модульні стилі
-
+import styles from './Item.module.scss';
 export class Item extends Component {
    render() {
       const { item } = this.props;
@@ -17,7 +16,10 @@ export class Item extends Component {
                <h2 className={`${styles.itemSubtitle} ${styles[`item-subtitle-${item.id}`]}`}>{item.subtitle}</h2>
             </div>
             <p className={`${styles.itemWeight} ${styles[`item-weight-${item.id}`]}`}>{item.weight}</p>
-            <h2 className={`${styles.itemPrice} ${styles[`item-price-${item.id}`]}`}>{item.price}</h2>
+            <div className={styles.priceContainer}>
+               <h2 onClick={() => this.props.onAdd(this.props.item)} className={`${styles.itemPrice} ${styles[`item-price-${item.id}`]}`}>{item.price}</h2>
+               <h2 className={styles.inCart}>Добавити в кошик</h2>
+            </div>
          </div>
       );
    }

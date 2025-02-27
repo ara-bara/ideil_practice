@@ -9,7 +9,7 @@
 }
 
 @mixin sbtn {
-   top: 44.5%;
+   top: 44.2%;
    cursor: pointer;
    @include posa(10);
 }
@@ -19,4 +19,11 @@
    font-weight: $weight;
    transform: translateX($translateX);
    font-family: "Montserrat", serif;
+}
+
+@mixin price-incart {
+   color: #FFFFFF;
+   @include posa(4);
+   left: 38.4%;
+   transition: opacity 0.3s ease;
 }

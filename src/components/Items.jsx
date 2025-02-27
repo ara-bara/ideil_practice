@@ -9,7 +9,7 @@ export class Items extends Component {
             <h1>Найчастіше замовляють</h1>
             <div className={styles.containerCustom}>
                {this.props.items.map((el) => (
-                  <Item key={el.id} item={el} />
+                  <Item key={el.id} item={el} onAdd={this.props.onAdd} />
                ))}
             </div>
          </main>

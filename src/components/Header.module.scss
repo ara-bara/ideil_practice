@@ -3,10 +3,13 @@
 .wrapper {
    width: 1280px;
    margin: 0 auto;
+   position: relative;
+   height: 100%;
 
    .navbar {
       background-color: #000000;
-      margin-top: 4px;
+      height: px;
+      padding-top: 31px;
 
       .mr-auto a {
          color: #fff;
@@ -14,6 +17,56 @@
 
       .navbar-toggler-icon {
          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+      }
+
+   }
+
+   .shop-cart-button {
+      color: aqua;
+      margin-right: 70px;
+   }
+
+   .shop-cart-button:active {
+      color: white;
+   }
+
+   .shop-cart {
+      width: 469px;
+      background-color: #000000;
+      position: fixed;
+      z-index: 20;
+      right: 0;
+      top: 100px;
+      height: calc(100vh - 100px);
+      overflow-y: auto;
+
+      .order {
+         .order__img {
+            width: 43.126px;
+            height: 47.19px;
+            background-color: #303030;
+            border-radius: 4.26px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+         }
+
+         .delete-icon {
+            img {
+               transition: transform 0.3s ease-in-out;
+               cursor: pointer;
+            }
+
+            &:hover img {
+               transform: scale(1.5);
+            }
+         }
+      }
+
+      .empty {
+         color: #fff;
+         text-align: center;
+         padding: 20px;
       }
    }
 }
