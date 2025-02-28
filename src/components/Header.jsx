@@ -3,11 +3,18 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import logo from '../img/logo.svg';
 import Order from './Order';
 
-const showOrders = (orders) => {
+const showOrders = (orders, onDelete, onUpdateQuantity, totalPrice) => {
+   const discount = totalPrice >= 1000 ? 0.1 : 0;
    return (
       <div>
          {orders.map(el => (
-            <Order key={el.id} item={el} />
+            <Order
+               onDelete={onDelete}
+               key={el.id}
+               item={el}
+               onUpdateQuantity={onUpdateQuantity}
+               discount={discount}
+            />
          ))}
       </div>
    );
@@ -15,14 +22,18 @@ const showOrders = (orders) => {
 
 const showNothing = () => {
    return (
-      <div className='empty' >
+      <div className='empty'>
          <h2>Немає товарів</h2>
       </div>
    );
 };
 
-const Header = ({ orders }) => {
+const Header = ({ orders, onDelete, onUpdateQuantity, totalItems, totalPrice, onCheckout, onOpenCart }) => {
    const [cartOpen, setCartOpen] = useState(false);
+
+   // Розрахунок знижки для всіх товарів у кошику
+   const discount = totalPrice >= 1000 ? totalPrice * 0.1 : 0;
+   const finalTotal = totalPrice - discount;
 
    return (
       <Navbar collapseOnSelect expand="md" fixed='top'>
@@ -50,11 +61,16 @@ const Header = ({ orders }) => {
                </Nav>
             </Navbar.Collapse>
             <div onClick={() => setCartOpen(!cartOpen)} className={`shop-cart-button ${cartOpen ? 'active' : ''}`}>
-               Price
+               Кошик ({totalItems}) - {finalTotal.toFixed(2)} грн
             </div>
             {cartOpen && (
                <div className='shop-cart'>
-                  {orders.length > 0 ? showOrders(orders) : showNothing()}
+                  {orders.length > 0 ? showOrders(orders, onDelete, onUpdateQuantity, totalPrice) : showNothing()}
+                  {orders.length > 0 && (
+                     <div className='cart-summary'>
+                        <button onClick={onCheckout}>оформити за {finalTotal.toFixed(2)} грн</button>
+                     </div>
+                  )}
                </div>
             )}
          </Container>
