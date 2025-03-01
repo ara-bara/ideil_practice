@@ -1,16 +1,20 @@
 {
   "files": {
-    "main.css": "/ideil_practice/static/css/main.8b3c76c3.css",
-    "main.js": "/ideil_practice/static/js/main.dcdccfaf.js",
+    "main.css": "/ideil_practice/static/css/main.39289206.css",
+    "main.js": "/ideil_practice/static/js/main.44c4e2d7.js",
     "static/media/Group.png": "/ideil_practice/static/media/Group.e22ea82fe165380542e8.png",
     "static/media/smile.svg": "/ideil_practice/static/media/smile.908d3b27e4742634180df43ff313473d.svg",
     "static/media/logo.svg": "/ideil_practice/static/media/logo.8c9da69c471af923e406288ef78d960d.svg",
+    "static/media/done-icon.svg": "/ideil_practice/static/media/done-icon.ec51e25664401524a6d76be464bd60da.svg",
     "index.html": "/ideil_practice/index.html",
-    "main.8b3c76c3.css.map": "/ideil_practice/static/css/main.8b3c76c3.css.map",
-    "main.dcdccfaf.js.map": "/ideil_practice/static/js/main.dcdccfaf.js.map"
+    "static/media/close-icon.svg": "/ideil_practice/static/media/close-icon.32e7d8c0a9addb9f7b2cf7eaa08e4c7e.svg",
+    "static/media/plus.svg": "/ideil_practice/static/media/plus.8e1af1c6c59b6f378abd1bba7964246e.svg",
+    "static/media/minus.svg": "/ideil_practice/static/media/minus.77eb0172bd1aeb531f6f83f6a755374d.svg",
+    "main.39289206.css.map": "/ideil_practice/static/css/main.39289206.css.map",
+    "main.44c4e2d7.js.map": "/ideil_practice/static/js/main.44c4e2d7.js.map"
   },
   "entrypoints": [
-    "static/css/main.8b3c76c3.css",
-    "static/js/main.dcdccfaf.js"
+    "static/css/main.39289206.css",
+    "static/js/main.44c4e2d7.js"
   ]
 }
