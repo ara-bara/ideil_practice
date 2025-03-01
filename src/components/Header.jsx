@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import logo from '../img/logo.svg';
 import Order from './Order';
+import closeIcon from '../img/close-icon.svg';
 
 const showOrders = (orders, onDelete, onUpdateQuantity, totalPrice) => {
    const discount = totalPrice >= 1000 ? 0.1 : 0;
    return (
       <div>
-         {orders.map(el => (
+         {orders.map((el) => (
             <Order
                onDelete={onDelete}
                key={el.id}
@@ -22,22 +23,26 @@ const showOrders = (orders, onDelete, onUpdateQuantity, totalPrice) => {
 
 const showNothing = () => {
    return (
-      <div className='empty'>
+      <div className="empty">
          <h2>Немає товарів</h2>
       </div>
    );
 };
 
-const Header = ({ orders, onDelete, onUpdateQuantity, totalItems, totalPrice, onCheckout, onOpenCart }) => {
-   const [cartOpen, setCartOpen] = useState(false);
-
-   // Розрахунок знижки для всіх товарів у кошику
-   const discount = totalPrice >= 1000 ? totalPrice * 0.1 : 0;
-   const finalTotal = totalPrice - discount;
-
+const Header = ({
+   orders,
+   onDelete,
+   onUpdateQuantity,
+   totalItems,
+   totalPrice,
+   onCheckout,
+   onOpenCart,
+   cartOpen,
+   onCloseCart,
+}) => {
    return (
-      <Navbar collapseOnSelect expand="md" fixed='top'>
-         <Container className='container-custom'>
+      <Navbar collapseOnSelect expand="md" fixed="top">
+         <Container className="container-custom">
             <Navbar.Brand href="/">
                <img
                   src={logo}
@@ -49,7 +54,9 @@ const Header = ({ orders, onDelete, onUpdateQuantity, totalItems, totalPrice, on
                />
             </Navbar.Brand>
             <div className="d-flex align-items-center">
-               <span className="d-md-none me-2 fw-bold" style={{ color: "#FFFFFF" }}>Меню</span>
+               <span className="d-md-none me-2 fw-bold" style={{ color: '#FFFFFF' }}>
+                  Меню
+               </span>
                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             </div>
             <Navbar.Collapse>
@@ -60,19 +67,38 @@ const Header = ({ orders, onDelete, onUpdateQuantity, totalItems, totalPrice, on
                   <Nav.Link href="/contacts">Контакти</Nav.Link>
                </Nav>
             </Navbar.Collapse>
-            <div onClick={() => setCartOpen(!cartOpen)} className={`shop-cart-button ${cartOpen ? 'active' : ''}`}>
-               Кошик ({totalItems}) - {finalTotal.toFixed(2)} грн
-            </div>
-            {cartOpen && (
-               <div className='shop-cart'>
-                  {orders.length > 0 ? showOrders(orders, onDelete, onUpdateQuantity, totalPrice) : showNothing()}
-                  {orders.length > 0 && (
-                     <div className='cart-summary'>
-                        <button onClick={onCheckout}>оформити за {finalTotal.toFixed(2)} грн</button>
-                     </div>
-                  )}
+            <div className="container-order">
+               <div
+                  onClick={cartOpen ? onCloseCart : onOpenCart}
+                  className={`basket ${cartOpen ? 'active' : ''}`}
+               >
+                  <div className="basket__quantity"><div>{totalItems}</div></div>
+                  <div className="basket__sum">{totalPrice.toFixed(2)} грн</div>
                </div>
-            )}
+               {cartOpen && (
+                  <div className="shop-cart">
+                     <div className="cart-header">
+                        <h2>Корзина</h2>
+                        <img
+                           src={closeIcon}
+                           alt="Закрити"
+                           onClick={onCloseCart}
+                           className="close-icon"
+                        />
+                     </div>
+                     {orders.length > 0
+                        ? showOrders(orders, onDelete, onUpdateQuantity, totalPrice)
+                        : showNothing()}
+                     {orders.length > 0 && (
+                        <div className="cart-summary">
+                           <button onClick={onCheckout}>
+                              оформити за {totalPrice.toFixed(2)} грн
+                           </button>
+                        </div>
+                     )}
+                  </div>
+               )}
+            </div>
          </Container>
       </Navbar>
    );

@@ -1,39 +1,38 @@
 import React, { Component } from 'react';
 import styles from './Item.module.scss';
+import doneIcon from '../img/done-icon.svg';
 
 export class Item extends Component {
    render() {
-      const { item, orders, onAdd, onOpenCart } = this.props;
+      const { item, orders, onAdd, onOpenCart, discount } = this.props;
+      const isInCart = orders.some(order => order.id === item.id);
       const itemInCart = orders.find(order => order.id === item.id);
-      const isInCart = Boolean(itemInCart);
-      const quantity = isInCart ? itemInCart.quantity : 0;
 
-      // Розрахунок загальної суми для цього товару в кошику
-      const totalPriceForItem = item.price * quantity;
-
-      // Знижка 10% застосовується, якщо загальна сума для цього товару перевищує 1000 грн
-      const discount = totalPriceForItem >= 1000 ? 0.1 : 0;
-
-      // Правильна ціна за одиницю товару з урахуванням знижки
-      const discountedPricePerItem = item.price * (1 - discount);
+      const totalPriceForItem = itemInCart ? itemInCart.price * itemInCart.quantity : 0;
+      const finalPrice = totalPriceForItem * (1 - discount);
 
       return (
-         <div className={styles.item}>
+         <div className={`${styles.item} ${styles[`item-${item.id}`]}`}>
             <img
-               src={`${process.env.PUBLIC_URL}/img/${item.img}`}
+               src={process.env.PUBLIC_URL + "/img/" + item.img}
                alt={item.title}
-               className={styles.itemImg}
+               className={`${styles.itemImg} ${styles[`item-img-${item.id}`]}`}
             />
-            <div className={styles.itemTitleAndSubtitle}>
-               <h2 className={styles.itemTitle}>{item.title}</h2>
-               <h2 className={styles.itemSubtitle}>{item.subtitle}</h2>
+            <div className={`${styles.itemTitleAndSubtitle} ${styles[`item-title-and-subtitle-${item.id}`]}`}>
+               <h2 className={`${styles.itemTitle} ${styles[`item-title-${item.id}`]}`}>{item.title}</h2>
+               <h2 className={`${styles.itemSubtitle} ${styles[`item-subtitle-${item.id}`]}`}>{item.subtitle}</h2>
             </div>
-            <p className={styles.itemWeight}>{item.weight}</p>
+            <p className={`${styles.itemWeight} ${styles[`item-weight-${item.id}`]}`}>{item.weight}</p>
             <div className={styles.priceContainer}>
                {isInCart ? (
-                  <h2 className={styles.inCart} onClick={onOpenCart}>
-                     У кошику {quantity} шт за {(discountedPricePerItem * quantity).toFixed(2)} грн
-                  </h2>
+                  <div className={styles.inCart} onClick={onOpenCart}>
+                     <img
+                        src={doneIcon}
+                        alt="Done"
+                        className="doneIcon"
+                     />
+                     У кошику {itemInCart.quantity} шт за {finalPrice.toFixed(2)} грн
+                  </div>
                ) : (
                   <>
                      <h2 className={styles.itemPrice}>{item.price} грн</h2>

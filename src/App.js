@@ -9,6 +9,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       orders: [],
+      cartOpen: false, // Стан для відкриття/закриття кошика
       items: [
         {
           id: 1,
@@ -97,8 +98,10 @@ class App extends React.Component {
     this.updateQuantity = this.updateQuantity.bind(this);
     this.checkout = this.checkout.bind(this);
     this.openCart = this.openCart.bind(this);
+    this.closeCart = this.closeCart.bind(this); // Функція для закриття кошика
   }
 
+  // Додавання товару до кошика
   addToOrder(item) {
     let isInArray = false;
     this.state.orders.forEach((el) => {
@@ -108,18 +111,23 @@ class App extends React.Component {
       this.setState({ orders: [...this.state.orders, { ...item, quantity: 1 }] });
   }
 
+  // Видалення товару з кошика
   deleteOrder(id) {
     this.setState({ orders: this.state.orders.filter((el) => el.id !== id) });
   }
 
+  // Оновлення кількості товару в кошику
   updateQuantity(id, delta) {
     this.setState({
       orders: this.state.orders.map((el) =>
-        el.id === id ? { ...el, quantity: Math.max(1, el.quantity + delta) } : el
+        el.id === id
+          ? { ...el, quantity: Math.max(1, el.quantity + delta) }
+          : el
       ),
     });
   }
 
+  // Оформлення замовлення
   checkout() {
     const { orders } = this.state;
     console.log('Замовлення:', orders);
@@ -130,13 +138,28 @@ class App extends React.Component {
     this.setState({ orders: [] });
   }
 
+  // Відкриття кошика
   openCart() {
     this.setState({ cartOpen: true });
   }
 
+  // Закриття кошика
+  closeCart() {
+    this.setState({ cartOpen: false });
+  }
+
   render() {
-    const total = this.state.orders.reduce((sum, el) => sum + el.price * el.quantity, 0);
-    const totalItems = this.state.orders.reduce((sum, el) => sum + el.quantity, 0);
+    const total = this.state.orders.reduce(
+      (sum, el) => sum + el.price * el.quantity,
+      0
+    );
+    const discount = total >= 1000 ? 0.1 : 0;
+    const finalTotal = total * (1 - discount);
+
+    const totalItems = this.state.orders.reduce(
+      (sum, el) => sum + el.quantity,
+      0
+    );
 
     return (
       <div className="wrapper">
@@ -145,9 +168,11 @@ class App extends React.Component {
           onDelete={this.deleteOrder}
           onUpdateQuantity={this.updateQuantity}
           totalItems={totalItems}
-          totalPrice={total} // Відображаємо загальну суму без знижки
+          totalPrice={finalTotal}
           onCheckout={this.checkout}
           onOpenCart={this.openCart}
+          cartOpen={this.state.cartOpen} // Передаємо стан cartOpen до Header
+          onCloseCart={this.closeCart} // Передаємо функцію для закриття кошика
         />
         <Slider />
         <Items
@@ -155,6 +180,7 @@ class App extends React.Component {
           onAdd={this.addToOrder}
           orders={this.state.orders}
           onOpenCart={this.openCart}
+          discount={discount}
         />
       </div>
     );
