@@ -27,3 +27,19 @@
    left: 38.4%;
    transition: opacity 0.3s ease;
 }
+
+@mixin border-styles {
+   border: 2px solid #FFFFFF;
+   border-radius: 63px;
+   padding: 5px 10px;
+   width: 296px;
+   height: 67px;
+   top: 0;
+   left: 0;
+}
+
+@mixin centering {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

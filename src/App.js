@@ -101,7 +101,6 @@ class App extends React.Component {
     this.closeCart = this.closeCart.bind(this); // Функція для закриття кошика
   }
 
-  // Додавання товару до кошика
   addToOrder(item) {
     let isInArray = false;
     this.state.orders.forEach((el) => {
@@ -111,12 +110,10 @@ class App extends React.Component {
       this.setState({ orders: [...this.state.orders, { ...item, quantity: 1 }] });
   }
 
-  // Видалення товару з кошика
   deleteOrder(id) {
     this.setState({ orders: this.state.orders.filter((el) => el.id !== id) });
   }
 
-  // Оновлення кількості товару в кошику
   updateQuantity(id, delta) {
     this.setState({
       orders: this.state.orders.map((el) =>
@@ -127,7 +124,6 @@ class App extends React.Component {
     });
   }
 
-  // Оформлення замовлення
   checkout() {
     const { orders } = this.state;
     console.log('Замовлення:', orders);
@@ -138,12 +134,10 @@ class App extends React.Component {
     this.setState({ orders: [] });
   }
 
-  // Відкриття кошика
   openCart() {
     this.setState({ cartOpen: true });
   }
 
-  // Закриття кошика
   closeCart() {
     this.setState({ cartOpen: false });
   }
@@ -171,17 +165,19 @@ class App extends React.Component {
           totalPrice={finalTotal}
           onCheckout={this.checkout}
           onOpenCart={this.openCart}
-          cartOpen={this.state.cartOpen} // Передаємо стан cartOpen до Header
-          onCloseCart={this.closeCart} // Передаємо функцію для закриття кошика
+          cartOpen={this.state.cartOpen}
+          onCloseCart={this.closeCart}
         />
-        <Slider />
-        <Items
-          items={this.state.items}
-          onAdd={this.addToOrder}
-          orders={this.state.orders}
-          onOpenCart={this.openCart}
-          discount={discount}
-        />
+        <div className={this.state.cartOpen ? "blur" : ""}>
+          <Slider />
+          <Items
+            items={this.state.items}
+            onAdd={this.addToOrder}
+            orders={this.state.orders}
+            onOpenCart={this.openCart}
+            discount={discount}
+          />
+        </div>
       </div>
     );
   }

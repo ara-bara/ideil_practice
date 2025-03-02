@@ -6,4 +6,29 @@
    padding: 0;
 }
 
+.blur {
+   position: relative;
+   filter: blur(5px);
+   transition: filter 0.3s ease;
+
+   &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #FCB8521C;
+      z-index: 1;
+      pointer-events: none;
+   }
+
+   .sliderWrapper {
+      background-color: #222222;
+      position: relative;
+      z-index: 2;
+   }
+}
+
+
 @import "./components/Header.module.scss";

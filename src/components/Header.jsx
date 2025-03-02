@@ -90,10 +90,16 @@ const Header = ({
                         ? showOrders(orders, onDelete, onUpdateQuantity, totalPrice)
                         : showNothing()}
                      {orders.length > 0 && (
-                        <div className="cart-summary">
-                           <button onClick={onCheckout}>
-                              оформити за {totalPrice.toFixed(2)} грн
-                           </button>
+                        <div className="order-summary">
+                           <div className="order-summary__delivery">
+                              <div className="order-summary__delivery-text">Доставка</div>
+                              <div className="order-summary__delivery-price">50 &#8372;</div>
+                           </div>
+                           <div className="order-summary__button">
+                              <button className="order-summary__button-action" onClick={onCheckout}>
+                                 Оформити за {totalPrice.toFixed(2)} &#8372;
+                              </button>
+                           </div>
                         </div>
                      )}
                   </div>

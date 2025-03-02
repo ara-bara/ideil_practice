@@ -26,16 +26,21 @@
    .priceContainer {
       cursor: pointer;
       padding: 32px 0;
-      margin: 19px 0 52px 0;
+      margin: 19px 0 50px 0;
       border-radius: 32px;
       position: relative;
+
+      h2 {
+         @include centering;
+      }
 
       .itemPrice {
          @include price-incart;
          @include text-styles(18px, 600, 0);
          opacity: 1;
-         bottom: 12.2%;
-         letter-spacing: 0.12px;
+         bottom: 20%;
+         left: 38%;
+         letter-spacing: -0.1px;
       }
 
       .addToCart {
@@ -49,13 +54,14 @@
 
       .inCart {
          @include price-incart;
-         @include text-styles(16px, 500, 0);
+         @include text-styles(16px, 400, 0);
          opacity: 1;
-         left: 24.75%;
-         bottom: 12.1%;
-         border: 2px solid #FFFFFF; // Бордер для індикації "У кошику"
-         border-radius: 8px; // Закруглені кути
-         padding: 5px 10px; // Відступи для кращого вигляду
+         @include border-styles;
+         @include centering;
+
+         span {
+            font-weight: 600;
+         }
       }
 
       &:hover {
@@ -65,9 +71,7 @@
 
          .addToCart {
             opacity: 1;
-            border: 2px solid #FFFFFF; // Бордер для кнопки "Додати в кошик"
-            border-radius: 8px; // Закруглені кути
-            padding: 5px 10px; // Відступи для кращого вигляду
+            @include border-styles;
          }
       }
    }
