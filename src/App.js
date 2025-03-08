@@ -9,13 +9,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       orders: [],
-      cartOpen: false, // Стан для відкриття/закриття кошика
+      cartOpen: false,
       items: [
         {
           id: 1,
           title: 'Yumbox',
           subtitle: '21 сет',
-          description: 'суперкачний суперсет',
+          description_part1: "суперкачний",
+          description_part2: "суперсет",
           img: 'item.svg',
           picture: 'picture.svg',
           weight: '1500 гр',
@@ -25,7 +26,8 @@ class App extends React.Component {
           id: 2,
           title: 'Yumbox',
           subtitle: '21 сет',
-          description: 'суперкачний суперсет',
+          description_part1: "суперкачний",
+          description_part2: "суперсет",
           img: 'item.svg',
           picture: 'picture.svg',
           weight: '1500 гр',
@@ -35,7 +37,8 @@ class App extends React.Component {
           id: 3,
           title: 'Yumbox',
           subtitle: '21 сет',
-          description: 'суперкачний суперсет',
+          description_part1: "суперкачний",
+          description_part2: "суперсет",
           img: 'item.svg',
           picture: 'picture.svg',
           weight: '1500 гр',
@@ -45,7 +48,8 @@ class App extends React.Component {
           id: 4,
           title: 'Yumbox',
           subtitle: '21 сет',
-          description: 'суперкачний суперсет',
+          description_part1: "суперкачний",
+          description_part2: "суперсет",
           img: 'item.svg',
           picture: 'picture.svg',
           weight: '1500 гр',
@@ -55,7 +59,8 @@ class App extends React.Component {
           id: 5,
           title: 'Yumbox',
           subtitle: '21 сет',
-          description: 'суперкачний суперсет',
+          description_part1: "суперкачний",
+          description_part2: "суперсет",
           img: 'item.svg',
           picture: 'picture.svg',
           weight: '1500 гр',
@@ -65,7 +70,8 @@ class App extends React.Component {
           id: 6,
           title: 'Yumbox',
           subtitle: '21 сет',
-          description: 'суперкачний суперсет',
+          description_part1: "суперкачний",
+          description_part2: "суперсет",
           img: 'item.svg',
           picture: 'picture.svg',
           weight: '1500 гр',
@@ -75,7 +81,8 @@ class App extends React.Component {
           id: 7,
           title: 'Yumbox',
           subtitle: '21 сет',
-          description: 'суперкачний суперсет',
+          description_part1: "суперкачний",
+          description_part2: "суперсет",
           img: 'item.svg',
           picture: 'picture.svg',
           weight: '1500 гр',
@@ -85,7 +92,8 @@ class App extends React.Component {
           id: 8,
           title: 'Yumbox',
           subtitle: '21 сет',
-          description: 'суперкачний суперсет',
+          description_part1: "суперкачний",
+          description_part2: "суперсет",
           img: 'item.svg',
           picture: 'picture.svg',
           weight: '1500 гр',
@@ -98,7 +106,7 @@ class App extends React.Component {
     this.updateQuantity = this.updateQuantity.bind(this);
     this.checkout = this.checkout.bind(this);
     this.openCart = this.openCart.bind(this);
-    this.closeCart = this.closeCart.bind(this); // Функція для закриття кошика
+    this.closeCart = this.closeCart.bind(this);
   }
 
   addToOrder(item) {

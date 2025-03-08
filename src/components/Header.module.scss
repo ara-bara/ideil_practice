@@ -10,14 +10,39 @@
       background-color: #000000;
       padding-top: 31px;
 
-      .mr-auto a {
-         color: #fff;
+      .navbar-brand {
+         flex-grow: 1;
+      }
+
+      .navbar-collapse {
+         flex-grow: 2;
+         margin-left: 137px;
+         margin-top: 2px;
+
+         a {
+            color: #fff;
+            font-weight: 400;
+            font-size: 15px;
+            font-family: "Montserrat", serif;
+
+            &:nth-child(2) {
+               transform: translateX(11px);
+               letter-spacing: -0.5px;
+            }
+
+            &:nth-child(3) {
+               transform: translateX(20px);
+            }
+
+            &:last-child {
+               transform: translateX(31px);
+            }
+         }
       }
 
       .navbar-toggler-icon {
          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='%23FFFFFF' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
       }
-
    }
 
 
@@ -25,19 +50,30 @@
       width: 469px;
       background-color: #000000;
       position: fixed;
+      overflow-y: auto;
       z-index: 20;
       right: 0;
       top: 121px;
       height: calc(100% - 127px);
       overflow-y: auto;
       color: #FFFFFF;
+      padding: 0 28px 0 29px;
+      font-family: 'Avenir Next Cyr';
+      padding-bottom: 167px;
 
       .cart-header {
          display: flex;
+         margin: 31px 0px 11px 1px;
 
          h2 {
-            @include text-styles(36px, 600, 0);
+            font-size: 36px;
+            font-weight: 500;
          }
+
+         img {
+            margin-left: 242px;
+         }
+
       }
 
       .order-summary {
@@ -47,26 +83,40 @@
          border-radius: 31px 31px 0 0;
          position: fixed;
          bottom: 0;
+         right: 0;
+         font-family: 'Avenir Next Cyr';
+         font-size: 18px;
+         font-weight: 600;
 
          .order-summary__button {
+            margin: 20px 0 0 31px;
+
             button {
                background-color: #FCB852;
                border-radius: 63px;
                width: 410.38px;
                height: 65.86px;
+               font-family: 'montserrat', serif;
             }
          }
 
          .order-summary__delivery {
             display: flex;
 
-            &-title {
-               @include text-styles(18px, 600, 0);
+            .order-summary__delivery-text {
+               margin: 25px 0 0 29px;
             }
 
-            &-price {
-               @include text-styles(18px, 600, 0);
+            .order-summary__delivery-price {
+               margin: 17px 0 0 276px;
+               font-weight: 600;
+               font-size: 25px;
+
+               span {
+                  font-family: 'Montserrat', serif;
+               }
             }
+
          }
 
       }
@@ -74,14 +124,65 @@
       .order {
          border-radius: 12px;
          background-color: #222222;
-         margin: 15px;
+         padding-top: 19px;
 
          .order-price {
             display: flex;
+            margin-bottom: 8px;
+            padding: 12px 0 4px 19px;
+            position: relative;
+
+            h2 {
+               font-size: 26px;
+            }
+
+            span {
+               font-family: "Montserrat", serif;
+            }
 
             .quantity-control {
+               position: absolute;
+               right: 3.8%;
                border: 1px solid #FFFFFF;
-               border-radius: 50%;
+               border-radius: 20px;
+               width: 98.68541717529297px;
+               height: 32.44px;
+               transform: translateY(-2px);
+
+               .quantity-control__container {
+                  position: relative;
+                  width: 100%;
+                  height: 100%;
+
+                  img {
+                     position: absolute;
+                     top: 48%;
+                     left: 11%;
+
+                     &:last-child {
+                        top: 32%;
+                        left: 78%;
+                     }
+                  }
+
+                  img:hover {
+                     filter: brightness(0.5);
+                     opacity: 0.8;
+                     transform: rotate(-15deg);
+
+                     &:last-child {
+                        transform: rotate(15deg);
+                     }
+                  }
+
+                  span {
+                     position: absolute;
+                     font-size: 14px;
+                     top: 14%;
+                     left: 45%;
+                     font-family: 'Avenir Next Cyr';
+                  }
+               }
             }
          }
 
@@ -91,6 +192,7 @@
             border-bottom: 1px solid #000000;
 
             .order-info__img {
+               margin-left: 8px;
                width: 43.126px;
                height: 47.19px;
                background-color: #303030;
@@ -103,14 +205,32 @@
             .order-info__text {
                .order-info__text-title {
                   display: flex;
+                  flex-wrap: wrap;
+                  line-height: 0;
+                  max-width: 270px;
 
                   h2 {
                      font-size: 18px;
+                     margin-bottom: 0;
+
+                     &:first-child {
+                        margin-right: 3px;
+                     }
+
+                     &:nth-child(2) {
+                        margin-right: 5px;
+                     }
+
+                     &:last-child {
+                        transform: translateY(-4px);
+                     }
                   }
                }
 
                p {
                   font-size: 13px;
+                  margin-bottom: 13px;
+                  transform: translateY(-2px);
                }
             }
          }
@@ -119,10 +239,11 @@
             img {
                transition: transform 0.3s ease-in-out;
                cursor: pointer;
+               margin: 0 6px 7px 0;
             }
 
             &:hover img {
-               transform: scale(1.5);
+               transform: scale(1.3);
             }
          }
       }
@@ -137,12 +258,15 @@
    .basket {
       color: #fff;
       display: flex;
+      cursor: pointer;
+      flex-wrap: nowrap;
       align-items: center;
       width: 117px;
       height: 27px;
       border: 1px solid #FFFFFF;
       border-radius: 21px;
       box-sizing: border-box;
+      margin-right: 13px;
 
       .basket__quantity {
          background-color: #D71515;

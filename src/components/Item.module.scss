@@ -58,6 +58,7 @@
          opacity: 1;
          @include border-styles;
          @include centering;
+         gap: 1%;
 
          span {
             font-weight: 600;

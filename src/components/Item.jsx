@@ -31,7 +31,7 @@ export class Item extends Component {
                         alt="Done"
                         className="doneIcon"
                      />
-                     В кошику <span>{itemInCart.quantity}</span> шт за <span>{finalPrice.toFixed(2)}</span> грн
+                     В кошику <span> {itemInCart.quantity} </span>  шт за  <span>{finalPrice.toFixed(2)} </span> грн
                   </div>
                ) : (
                   <>

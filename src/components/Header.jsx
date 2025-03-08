@@ -1,8 +1,8 @@
-import React from 'react';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import logo from '../img/logo.svg';
-import Order from './Order';
-import closeIcon from '../img/close-icon.svg';
+import React from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import logo from "../img/logo.svg";
+import Order from "./Order";
+import closeIcon from "../img/close-icon.svg";
 
 const showOrders = (orders, onDelete, onUpdateQuantity, totalPrice) => {
    const discount = totalPrice >= 1000 ? 0.1 : 0;
@@ -21,13 +21,11 @@ const showOrders = (orders, onDelete, onUpdateQuantity, totalPrice) => {
    );
 };
 
-const showNothing = () => {
-   return (
-      <div className="empty">
-         <h2>Немає товарів</h2>
-      </div>
-   );
-};
+const showNothing = () => (
+   <div className="empty">
+      <h2>Немає товарів</h2>
+   </div>
+);
 
 const Header = ({
    orders,
@@ -40,13 +38,20 @@ const Header = ({
    cartOpen,
    onCloseCart,
 }) => {
+   // Динамічне визначення ширини корзини
+   const basketStyle = {
+      width: totalItems <= 13 ? "117px" : `${117 + (totalItems - 13) * 10}px`,
+      maxWidth: "250px", // Щоб не виходило за межі контейнера
+      transition: "width 0.3s ease-in-out",
+   };
+
    return (
       <Navbar collapseOnSelect expand="md" fixed="top">
          <Container className="container-custom">
             <Navbar.Brand href="/">
                <img
                   src={logo}
-                  style={{ marginLeft: '32px' }}
+                  style={{ marginLeft: "32px" }}
                   width="114px"
                   height="72.41px"
                   className="d-inline-block align-top"
@@ -54,7 +59,7 @@ const Header = ({
                />
             </Navbar.Brand>
             <div className="d-flex align-items-center">
-               <span className="d-md-none me-2 fw-bold" style={{ color: '#FFFFFF' }}>
+               <span className="d-md-none me-2 fw-bold" style={{ color: "#FFFFFF" }}>
                   Меню
                </span>
                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -70,9 +75,12 @@ const Header = ({
             <div className="container-order">
                <div
                   onClick={cartOpen ? onCloseCart : onOpenCart}
-                  className={`basket ${cartOpen ? 'active' : ''}`}
+                  className={`basket ${cartOpen ? "active" : ""}`}
+                  style={basketStyle} // Додаємо змінений стиль
                >
-                  <div className="basket__quantity"><div>{totalItems}</div></div>
+                  <div className="basket__quantity">
+                     <div>{totalItems}</div>
+                  </div>
                   <div className="basket__sum">{totalPrice.toFixed(2)} грн</div>
                </div>
                {cartOpen && (
@@ -93,11 +101,16 @@ const Header = ({
                         <div className="order-summary">
                            <div className="order-summary__delivery">
                               <div className="order-summary__delivery-text">Доставка</div>
-                              <div className="order-summary__delivery-price">50 &#8372;</div>
+                              <div className="order-summary__delivery-price">
+                                 50 <span>&#x20b4;</span>
+                              </div>
                            </div>
                            <div className="order-summary__button">
-                              <button className="order-summary__button-action" onClick={onCheckout}>
-                                 Оформити за {totalPrice.toFixed(2)} &#8372;
+                              <button
+                                 className="order-summary__button-action"
+                                 onClick={onCheckout}
+                              >
+                                 оформити за {totalPrice.toFixed(2)} &#8372;
                               </button>
                            </div>
                         </div>

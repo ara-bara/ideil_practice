@@ -1,6 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "./components/Mixin.scss";
 
+@font-face {
+   font-family: 'Avenir Next Cyr';
+   src: url('../src/fonts/AvenirNextCyr-Demi.eot'),
+      url('../src/fonts/AvenirNextCyr-Demi.woff') format('woff'),
+      url('../src/fonts/AvenirNextCyr-Demi.woff2') format('woff2'),
+      url('../src/fonts/AvenirNextCyr-Demi.ttf') format('truetype');
+   font-weight: 600;
+   font-style: normal;
+}
+
 * {
    margin: 0;
    padding: 0;

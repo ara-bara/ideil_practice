@@ -21,7 +21,8 @@ export class Order extends Component {
                   <div className='order-info__text-title'>
                      <h2>{item.title}</h2>
                      <h2>{item.subtitle}</h2>
-                     <h2>{item.description}</h2>
+                     <h2>{item.description_part1}</h2>
+                     <h2>{item.description_part2}</h2>
                   </div>
                   <p>{item.weight}</p>
                </div>
@@ -33,21 +34,23 @@ export class Order extends Component {
                </div>
             </div>
             <div className='order-price'>
-               <h2>{finalPrice.toFixed(2)} грн</h2>
+               <h2>{finalPrice.toFixed(2)} <span>&#8372;</span></h2>
                <div className='quantity-control'>
-                  <img
-                     src={arrowDown}
-                     alt="Зменшити кількість"
-                     onClick={() => onUpdateQuantity(item.id, -1)}
-                     style={{ cursor: 'pointer' }}
-                  />
-                  <span>{item.quantity}</span>
-                  <img
-                     src={arrowUp}
-                     alt="Збільшити кількість"
-                     onClick={() => onUpdateQuantity(item.id, 1)}
-                     style={{ cursor: 'pointer' }}
-                  />
+                  <div className='quantity-control__container'>
+                     <img
+                        src={arrowDown}
+                        alt="Зменшити кількість"
+                        onClick={() => onUpdateQuantity(item.id, -1)}
+                        style={{ cursor: 'pointer' }}
+                     />
+                     <span>{item.quantity}</span>
+                     <img
+                        src={arrowUp}
+                        alt="Збільшити кількість"
+                        onClick={() => onUpdateQuantity(item.id, 1)}
+                        style={{ cursor: 'pointer' }}
+                     />
+                  </div>
                </div>
             </div>
          </div>
