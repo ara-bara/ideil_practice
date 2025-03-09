@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/ideil_practice/static/css/main.d95b0f46.css",
-    "main.js": "/ideil_practice/static/js/main.9b0adceb.js",
+    "main.css": "/ideil_practice/static/css/main.c024c94d.css",
+    "main.js": "/ideil_practice/static/js/main.d21c7b54.js",
     "static/media/Group.png": "/ideil_practice/static/media/Group.e22ea82fe165380542e8.png",
+    "static/media/banner.png": "/ideil_practice/static/media/banner.fade60a21af5d3374014.png",
     "static/media/AvenirNextCyr-Demi.eot": "/ideil_practice/static/media/AvenirNextCyr-Demi.4b2189c473c87dbf4d5d.eot",
     "static/media/AvenirNextCyr-Demi.ttf": "/ideil_practice/static/media/AvenirNextCyr-Demi.c234f5295ae22b8b0e28.ttf",
     "static/media/AvenirNextCyr-Demi.woff": "/ideil_practice/static/media/AvenirNextCyr-Demi.4a392b4ac7128c077b27.woff",
@@ -14,11 +15,11 @@
     "static/media/close-icon.svg": "/ideil_practice/static/media/close-icon.32e7d8c0a9addb9f7b2cf7eaa08e4c7e.svg",
     "static/media/plus.svg": "/ideil_practice/static/media/plus.8e1af1c6c59b6f378abd1bba7964246e.svg",
     "static/media/minus.svg": "/ideil_practice/static/media/minus.77eb0172bd1aeb531f6f83f6a755374d.svg",
-    "main.d95b0f46.css.map": "/ideil_practice/static/css/main.d95b0f46.css.map",
-    "main.9b0adceb.js.map": "/ideil_practice/static/js/main.9b0adceb.js.map"
+    "main.c024c94d.css.map": "/ideil_practice/static/css/main.c024c94d.css.map",
+    "main.d21c7b54.js.map": "/ideil_practice/static/js/main.d21c7b54.js.map"
   },
   "entrypoints": [
-    "static/css/main.d95b0f46.css",
-    "static/js/main.9b0adceb.js"
+    "static/css/main.c024c94d.css",
+    "static/js/main.d21c7b54.js"
   ]
 }
