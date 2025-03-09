@@ -38,15 +38,14 @@ const Header = ({
    cartOpen,
    onCloseCart,
 }) => {
-   // Динамічне визначення ширини корзини
    const basketStyle = {
       width: totalItems <= 13 ? "117px" : `${117 + (totalItems - 13) * 10}px`,
-      maxWidth: "250px", // Щоб не виходило за межі контейнера
+      maxWidth: "250px",
       transition: "width 0.3s ease-in-out",
    };
 
    return (
-      <Navbar collapseOnSelect expand="md" fixed="top">
+      <Navbar collapseOnSelect expand="lg" fixed="top">
          <Container className="container-custom">
             <Navbar.Brand href="/">
                <img
@@ -59,7 +58,7 @@ const Header = ({
                />
             </Navbar.Brand>
             <div className="d-flex align-items-center">
-               <span className="d-md-none me-2 fw-bold" style={{ color: "#FFFFFF" }}>
+               <span className="d-lg-none me-2 fw-bold" style={{ color: "#FFFFFF" }}>
                   Меню
                </span>
                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -76,7 +75,7 @@ const Header = ({
                <div
                   onClick={cartOpen ? onCloseCart : onOpenCart}
                   className={`basket ${cartOpen ? "active" : ""}`}
-                  style={basketStyle} // Додаємо змінений стиль
+                  style={basketStyle}
                >
                   <div className="basket__quantity">
                      <div>{totalItems}</div>

@@ -6,6 +6,11 @@
    position: relative;
    height: 100%;
 
+   @media (max-width: 1300px) {
+      width: 90%;
+      margin: 0 auto;
+   }
+
    .navbar {
       background-color: #000000;
       padding-top: 31px;
@@ -16,7 +21,7 @@
 
       .navbar-collapse {
          flex-grow: 2;
-         margin-left: 137px;
+         margin-left: 135px;
          margin-top: 2px;
 
          a {
@@ -26,8 +31,8 @@
             font-family: "Montserrat", serif;
 
             &:nth-child(2) {
-               transform: translateX(11px);
-               letter-spacing: -0.5px;
+               transform: translateX(12px);
+               letter-spacing: 0.28px;
             }
 
             &:nth-child(3) {
@@ -35,7 +40,7 @@
             }
 
             &:last-child {
-               transform: translateX(31px);
+               transform: translateX(33px);
             }
          }
       }

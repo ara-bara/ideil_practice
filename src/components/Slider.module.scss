@@ -6,20 +6,12 @@ body {
    background-color: #000000;
 }
 
-.swiper-slide img {
-   display: block;
-   padding-left: 30px;
-   position: relative;
-   z-index: 1;
-}
-
 .smile {
    top: -1%;
    left: 5.4%;
    @include wh(263px, 263px);
    @include posa(7);
 }
-
 
 .sliderWrapper {
    margin: 126px 0 0 0;
@@ -49,4 +41,60 @@ body {
 
 .customPagination {
    margin: 10px 0 0 46.48%;
+}
+
+@media (max-width: 1300px) {
+
+   .sliderWrapper {
+      width: 1000px;
+      height: 300px;
+      margin: 126px auto 0 auto;
+      padding-left: 0;
+      transform: translateX(-6px);
+   }
+
+   .banner {
+      width: 70%;
+      display: block;
+      margin: 0 auto;
+   }
+
+   .smile {
+      display: none;
+   }
+}
+
+@media (max-width: 1200px) {
+   .sliderWrapper {
+      width: 800px;
+      height: 250px;
+   }
+}
+
+@media (max-width: 991px) {
+   .sliderWrapper {
+      width: 600px;
+      height: 190px;
+   }
+}
+
+@media (max-width: 768px) {
+   .sliderWrapper {
+      width: 500px;
+      height: 335px;
+   }
+}
+
+@media (max-width: 600px) {
+   .sliderWrapper {
+      width: 400px;
+      height: 270px;
+   }
+}
+
+@media (max-width: 470px) {
+   .sliderWrapper {
+      width: 300px;
+      height: 205px;
+   }
 }
