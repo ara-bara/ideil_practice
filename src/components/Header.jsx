@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from "../img/logo.svg";
 import Order from "./Order";
 import closeIcon from "../img/close-icon.svg";
+import linkedinIcon from "../img/linkedin.svg";
+import instagramIcon from "../img/instagram.svg";
+import facebookIcon from "../img/facebook.svg";
 
 const showOrders = (orders, onDelete, onUpdateQuantity, totalPrice) => {
    const discount = totalPrice >= 1000 ? 0.1 : 0;
@@ -38,6 +41,22 @@ const Header = ({
    cartOpen,
    onCloseCart,
 }) => {
+   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+   const toggleMenu = () => {
+      setIsMenuOpen(!isMenuOpen);
+      if (cartOpen) onCloseCart();
+   };
+
+   const handleCartClick = () => {
+      if (cartOpen) {
+         onCloseCart();
+      } else {
+         onOpenCart();
+         setIsMenuOpen(false);
+      }
+   };
+
    const basketStyle = {
       width: totalItems <= 13 ? "117px" : `${117 + (totalItems - 13) * 10}px`,
       maxWidth: "250px",
@@ -61,20 +80,39 @@ const Header = ({
                <span className="d-lg-none me-2 fw-bold" style={{ color: "#FFFFFF" }}>
                   Меню
                </span>
-               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+               <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={toggleMenu} />
             </div>
-            <Navbar.Collapse>
+            <Navbar.Collapse in={isMenuOpen}>
                <Nav className="mr-auto">
                   <Nav.Link href="/">Каталог</Nav.Link>
                   <Nav.Link href="/catering">Кейтеринг</Nav.Link>
                   <Nav.Link href="/about">Про нас</Nav.Link>
                   <Nav.Link href="/contacts">Контакти</Nav.Link>
+                  <div className="d-md-none mt-3">
+                     <div className="contacts">
+                        <div className="contacts__email">
+                           <a href="mailto:yumbox.lutsk@gmail.com">yumbox.lutsk@gmail.com</a>
+                        </div>
+                        <div className="contacts__phone">
+                           <a href="tel: +380 93 823 92 93"> +380 93 823 92 93</a></div></div>
+                     <div className="d-flex align-items-center mb-2 social-media">
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                           <img src={linkedinIcon} alt="LinkedIn" className="me-2" />
+                        </a>
+                        <a href="https://www.instagram.com/yumbox.lutsk" target="_blank" rel="noopener noreferrer">
+                           <img src={instagramIcon} alt="Instagram" className="me-2" />
+                        </a>
+                        <a href="https://www.facebook.com/yumbox.lutsk" target="_blank" rel="noopener noreferrer">
+                           <img src={facebookIcon} alt="Facebook" className="me-2" />
+                        </a>
+                     </div>
+                  </div>
                </Nav>
             </Navbar.Collapse>
             <div className="container-order">
                <div
-                  onClick={cartOpen ? onCloseCart : onOpenCart}
-                  className={`basket ${cartOpen ? "active" : ""}`}
+                  onClick={handleCartClick}
+                  className={`basket ${cartOpen ? "active" : ""} ${isMenuOpen ? "menu-open" : ""}`}
                   style={basketStyle}
                >
                   <div className="basket__quantity">
@@ -89,7 +127,7 @@ const Header = ({
                         <img
                            src={closeIcon}
                            alt="Закрити"
-                           onClick={onCloseCart}
+                           onClick={handleCartClick}
                            className="close-icon"
                         />
                      </div>

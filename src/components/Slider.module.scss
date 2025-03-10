@@ -53,6 +53,12 @@ body {
       transform: translateX(-6px);
    }
 
+   .customPagination {
+      margin: 25px auto 0 auto;
+      display: flex;
+      justify-content: center;
+   }
+
    .banner {
       width: 70%;
       display: block;

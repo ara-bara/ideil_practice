@@ -7,8 +7,12 @@
 
    h1 {
       color: #FFFFFF;
-      margin: 93px 0 71px 14px;
+      margin: 93px 0 72px 14px;
       @include text-styles(20px, 500, -8px);
+
+      @media (max-width: 992px) {
+         margin: 50px 0 0 14px;
+      }
    }
 }
 
