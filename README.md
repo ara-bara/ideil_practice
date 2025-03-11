@@ -37,5 +37,5 @@ web-vitals: ^4.2.4
 
 ## 🌍 Деплой на GitHub Pages
 Проєкт розміщений на GitHub Pages. Ви можете переглянути його за посиланням:
-[**GitHub Pages https://ara-bara.github.io/ideil_practice/**](#)
+[**https://ara-bara.github.io/ideil_practice/**](#)
 
